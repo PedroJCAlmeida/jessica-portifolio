@@ -50,8 +50,8 @@ const Contact: React.FC = () => {
         </svg>
       ),
       title: 'Email',
-      value: 'jessica.almeida@exemplo.com',
-      link: 'mailto:jessica.almeida@exemplo.com'
+      value: 'jessicansalmeida2@gmail.com',
+      link: 'mailto:jessicansalmeida2@gmail.com'
     },
     {
       icon: (
@@ -232,7 +232,7 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div className="mt-10 pt-10 border-t border-neutral-100">
-                  <h4 className="text-sm font-sans font-bold text-neutral-400 uppercase tracking-widest mb-6">Redes Profissionais</h4>
+                  <h4 className="text-sm font-sans font-bold text-neutral-400 uppercase tracking-widest mb-6">Redes Sociais</h4>
                   <div className="flex gap-4">
                     {socialLinks.map((social) => (
                       <a

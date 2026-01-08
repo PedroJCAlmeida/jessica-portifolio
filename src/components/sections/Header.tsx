@@ -16,7 +16,16 @@ const Header: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const offset = 80; // Compensate for fixed header
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
     setIsMobileMenuOpen(false);
   };
@@ -26,7 +35,7 @@ const Header: React.FC = () => {
     { id: 'about', label: 'Sobre' },
     { id: 'skills', label: 'Expertise' },
     { id: 'projects', label: 'Carreira' },
-    { id: 'contact', label: 'Contato' }
+    { id: 'contact', label: 'Contacto' }
   ];
 
   return (
@@ -41,11 +50,11 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div 
-            className="flex items-center gap-2 cursor-pointer group"
+            className="flex items-center gap-2 cursor-pointer group z-50 relative"
             onClick={() => scrollToSection('hero')}
           >
             <span className={`text-2xl font-display font-bold transition-colors duration-300 ${
-              isScrolled ? 'text-brand-charcoal' : 'text-white'
+              isScrolled || isMobileMenuOpen ? 'text-brand-charcoal' : 'text-white'
             }`}>
               Jéssica
               <span className={`text-brand-gold ml-1 text-3xl transition-transform duration-300 group-hover:-translate-y-1 inline-block`}>.</span>
@@ -84,38 +93,53 @@ const Header: React.FC = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className={`md:hidden p-2 rounded-lg transition-colors duration-300 ${
-              isScrolled ? 'text-brand-charcoal' : 'text-white'
+            className={`md:hidden p-2 z-50 relative focus:outline-none transition-colors duration-300 ${
+              isScrolled || isMobileMenuOpen ? 'text-brand-charcoal' : 'text-white'
             }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
           >
-            <div className="w-6 flex flex-col items-end gap-1.5">
-              <span className={`h-0.5 w-full transition-colors ${isScrolled ? 'bg-current' : 'bg-white'}`}></span>
-              <span className={`h-0.5 w-2/3 transition-colors ${isScrolled ? 'bg-current' : 'bg-white'}`}></span>
-              <span className={`h-0.5 w-full transition-colors ${isScrolled ? 'bg-current' : 'bg-white'}`}></span>
-            </div>
+            {isMobileMenuOpen ? (
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        <div className={`md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-xl transition-all duration-300 overflow-hidden ${
-          isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-        }`}>
-          <div className="px-6 py-6 space-y-4">
-            {navItems.map((item) => (
+        {/* Mobile Navigation Overlay */}
+        <div 
+          className={`md:hidden fixed inset-0 bg-white z-40 transition-all duration-500 ease-in-out ${
+            isMobileMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'
+          }`}
+        >
+          <div className="flex flex-col items-center justify-center h-full space-y-8 p-8">
+            {navItems.map((item, idx) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left text-lg font-serif text-brand-charcoal hover:text-brand-burgundy transition-colors duration-200"
+                className={`text-2xl font-display font-bold text-brand-charcoal hover:text-brand-burgundy transition-all duration-300 transform ${
+                  isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                }`}
+                style={{ transitionDelay: `${idx * 100}ms` }}
               >
                 {item.label}
               </button>
             ))}
-            <div className="pt-4 border-t border-gray-100">
+            
+            <div 
+              className={`pt-8 w-full max-w-xs transition-all duration-500 transform ${
+                isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              }`}
+              style={{ transitionDelay: '500ms' }}
+            >
               <button
                 onClick={() => scrollToSection('contact')}
-                className="w-full bg-brand-burgundy text-white font-sans font-bold py-4 rounded-lg hover:bg-brand-charcoal transition-colors"
+                className="w-full bg-brand-burgundy text-white font-sans font-bold py-4 rounded-xl shadow-lg hover:bg-brand-charcoal transition-colors"
               >
                 Falar Comigo
               </button>
