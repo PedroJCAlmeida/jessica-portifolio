@@ -3,12 +3,12 @@ import React from 'react';
 interface Project {
   id: number;
   title: string;
+  company: string;
   description: string;
   longDescription: string;
-  technologies: string[];
+  skills: string[];
   imageUrl: string;
-  githubUrl: string;
-  liveUrl: string;
+  period: string;
   featured: boolean;
 }
 
@@ -16,69 +16,47 @@ const Projects: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: 'E-commerce Platform',
-      description: 'Plataforma completa de e-commerce com carrinho, pagamentos e dashboard administrativo.',
-      longDescription: 'Uma aplicação full-stack desenvolvida com React e Node.js, incluindo autenticação, processamento de pagamentos via Stripe, sistema de inventário e painel administrativo completo.',
-      technologies: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Stripe'],
-      imageUrl: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      githubUrl: 'https://github.com/jessica/ecommerce-platform',
-      liveUrl: 'https://ecommerce-platform-demo.com',
+      title: 'Supervisão Operacional & Liderança',
+      company: 'The Yeatman Hotel',
+      description: 'Liderança de equipas numerosas (27-37 colaboradores) num dos hotéis mais prestigiados de Portugal.',
+      longDescription: 'Responsável pela supervisão operacional e gestão de equipas, garantindo os mais altos padrões de serviço e hospitalidade. Foco em otimização de processos e desenvolvimento de talentos.',
+      skills: ['Liderança', 'Hospitalidade de Luxo', 'Gestão de Equipas', 'KPIs'],
+      imageUrl: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      period: '2021 - 2023',
       featured: true
     },
     {
       id: 2,
-      title: 'Task Management App',
-      description: 'Aplicativo de gerenciamento de tarefas com interface intuitiva e recursos avançados.',
-      longDescription: 'Sistema de produtividade com funcionalidades como arrastar e soltar, colaboração em tempo real, notificações push e integração com calendário.',
-      technologies: ['React', 'Redux', 'Firebase', 'Material-UI'],
-      imageUrl: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      githubUrl: 'https://github.com/jessica/task-manager',
-      liveUrl: 'https://task-manager-demo.com',
+      title: 'Análise Comercial & Marketing',
+      company: 'IHG / Iberostar',
+      description: 'Análise detalhada de performance comercial e suporte a estratégias de marketing hoteleiro.',
+      longDescription: 'Atuação como Analista Comercial, utilizando dados para identificar oportunidades de crescimento, gerir parcerias e otimizar a presença digital das marcas no mercado.',
+      skills: ['Salesforce', 'Análise de Dados', 'Revenue Management', 'E-commerce'],
+      imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      period: '2018 - 2019',
       featured: true
     },
     {
       id: 3,
-      title: 'Weather Dashboard',
-      description: 'Dashboard meteorológico com previsões detalhadas e mapas interativos.',
-      longDescription: 'Aplicação que consome APIs meteorológicas para fornecer previsões precisas, com visualizações gráficas, mapas interativos e alertas personalizados.',
-      technologies: ['React', 'TypeScript', 'Chart.js', 'Leaflet'],
-      imageUrl: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      githubUrl: 'https://github.com/jessica/weather-dashboard',
-      liveUrl: 'https://weather-dashboard-demo.com',
+      title: 'Yield Management & Parcerias',
+      company: 'Hotelbeds',
+      description: 'Gestão de contas e otimização de inventário (Yield Management) para um dos maiores bancos de camas do mundo.',
+      longDescription: 'Foco na gestão de relacionamento com hotéis parceiros, negociação de tarifas e estratégias de disponibilidade para maximizar o volume de vendas e rentabilidade.',
+      skills: ['Yield Management', 'Negociação', 'OTA Management', 'B2B Sales'],
+      imageUrl: 'https://images.unsplash.com/photo-1454165833767-02302321456c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      period: '2014 - 2017',
       featured: false
     },
     {
       id: 4,
-      title: 'Social Media Dashboard',
-      description: 'Dashboard para gerenciamento de múltiplas redes sociais em uma única interface.',
-      longDescription: 'Ferramenta para marketers e influenciadores gerenciarem múltiplas contas de redes sociais, com analytics detalhados e agendamento de posts.',
-      technologies: ['Vue.js', 'Nuxt.js', 'TailwindCSS', 'Express.js'],
-      imageUrl: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      githubUrl: 'https://github.com/jessica/social-dashboard',
-      liveUrl: 'https://social-dashboard-demo.com',
+      title: 'Estratégia de Marketing Turístico',
+      company: 'Mestrado ESHT',
+      description: 'Desenvolvimento de estratégias modernas para a promoção de destinos e produtos turísticos.',
+      longDescription: 'Projeto final de mestrado focado em tendências atuais de marketing digital aplicadas ao turismo, integrando automação, CRM e análise de comportamento do consumidor.',
+      skills: ['Marketing Digital', 'Planeamento Estratégico', 'Investigação', 'Promoção'],
+      imageUrl: 'https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      period: '2023',
       featured: false
-    },
-    {
-      id: 5,
-      title: 'Portfolio Website',
-      description: 'Website portfolio responsivo com animações modernas e design clean.',
-      longDescription: 'Portfolio pessoal desenvolvido com as mais modernas tecnologias, incluindo animações fluidas, otimização para SEO e performance excepcional.',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-      imageUrl: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      githubUrl: 'https://github.com/jessica/portfolio',
-      liveUrl: 'https://jessica-portfolio.com',
-      featured: false
-    },
-    {
-      id: 6,
-      title: 'Crypto Tracker',
-      description: 'Aplicativo para acompanhar preços e tendências de criptomoedas em tempo real.',
-      longDescription: 'Aplicação que fornece dados em tempo real sobre criptomoedas, com gráficos interativos, alertas de preço e portfolio tracker para investidores.',
-      technologies: ['React', 'Redux Toolkit', 'WebSocket', 'Recharts'],
-      imageUrl: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      githubUrl: 'https://github.com/jessica/crypto-tracker',
-      liveUrl: 'https://crypto-tracker-demo.com',
-      featured: true
     }
   ];
 
@@ -89,150 +67,129 @@ const Projects: React.FC = () => {
     project, 
     featured = false 
   }) => (
-    <div className={`group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 ${
-      featured ? 'lg:col-span-2' : ''
+    <div className={`group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-neutral-100 ${
+      featured ? 'lg:col-span-1' : ''
     }`}>
       {/* Project Image */}
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden h-72">
         <img 
           src={project.imageUrl} 
           alt={project.title}
-          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90 group-hover:brightness-100"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="absolute bottom-4 left-4 right-4 flex gap-2">
-            <a 
-              href={project.githubUrl}
-              className="flex-1 bg-white/90 backdrop-blur-sm text-gray-900 px-4 py-2 rounded-lg text-center font-medium hover:bg-white transition-colors duration-200"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </a>
-            <a 
-              href={project.liveUrl}
-              className="flex-1 bg-primary-600 text-white px-4 py-2 rounded-lg text-center font-medium hover:bg-primary-700 transition-colors duration-200"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Live Demo
-            </a>
-          </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-brand-charcoal/40 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
+        <div className="absolute bottom-6 left-8 right-8">
+          <span className="bg-brand-gold text-white text-xs font-bold font-sans uppercase tracking-widest px-3 py-1 mb-3 inline-block shadow-sm">
+            {project.period}
+          </span>
+          <h3 className="text-2xl font-display font-bold text-white mb-1 drop-shadow-md">
+            {project.company}
+          </h3>
         </div>
       </div>
 
       {/* Project Content */}
-      <div className="p-6">
-        <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors duration-200">
+      <div className="p-8">
+        <h4 className="text-xl font-display font-bold text-brand-charcoal mb-4 group-hover:text-brand-burgundy transition-colors duration-300">
           {project.title}
-        </h3>
-        <p className="text-gray-600 mb-4 leading-relaxed">
+        </h4>
+        <p className="text-neutral-600 mb-6 leading-relaxed font-serif">
           {featured ? project.longDescription : project.description}
         </p>
 
-        {/* Technologies */}
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.technologies.map((tech) => (
+        {/* Technologies/Skills */}
+        <div className="flex flex-wrap gap-2 mb-8">
+          {project.skills.map((skill) => (
             <span 
-              key={tech}
-              className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full font-medium hover:bg-primary-100 hover:text-primary-700 transition-colors duration-200"
+              key={skill}
+              className="px-3 py-1 bg-neutral-50 text-neutral-600 text-xs font-bold uppercase tracking-wide rounded border border-neutral-200"
             >
-              {tech}
+              {skill}
             </span>
           ))}
         </div>
 
-        {/* Project Links */}
-        <div className="flex gap-3 pt-4 border-t border-gray-100">
-          <a 
-            href={project.githubUrl}
-            className="text-gray-600 hover:text-gray-900 transition-colors duration-200"
-            target="_blank"
-            rel="noopener noreferrer"
+        {/* Action Button */}
+        <div className="pt-6 border-t border-neutral-100">
+          <button 
+            onClick={() => {
+              const element = document.getElementById('contact');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="flex items-center text-brand-burgundy font-bold font-sans text-sm tracking-wide uppercase hover:text-brand-gold transition-colors group/btn"
           >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            Saber mais
+            <svg className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </a>
-          <a 
-            href={project.liveUrl}
-            className="text-gray-600 hover:text-primary-600 transition-colors duration-200"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </a>
+          </button>
         </div>
       </div>
     </div>
   );
 
   return (
-    <section id="projects" className="py-20 bg-white">
-      <div className="container mx-auto px-6">
+    <section id="projects" className="py-24 bg-neutral-50 relative">
+      <div className="section-container">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="section-title">Projetos</h2>
+          <div className="text-center mb-20">
+            <h2 className="section-title">Percurso & Impacto</h2>
             <p className="section-subtitle">
-              Uma seleção dos meus trabalhos mais recentes e impactantes
+              Destaques de uma trajetória profissional construída em marcas de excelência
             </p>
           </div>
 
-          {/* Featured Projects */}
-          {featuredProjects.length > 0 && (
-            <div className="mb-16">
-              <h3 className="text-2xl font-bold text-gray-900 mb-8">Projetos em Destaque</h3>
-              <div className="grid lg:grid-cols-3 gap-8">
-                {featuredProjects.map((project) => (
-                  <ProjectCard 
-                    key={project.id} 
-                    project={project} 
-                    featured={true}
-                  />
-                ))}
-              </div>
-            </div>
-          )}
+          {/* Featured Projects Grid */}
+          <div className="grid lg:grid-cols-2 gap-12 mb-16">
+            {featuredProjects.map((project) => (
+              <ProjectCard 
+                key={project.id} 
+                project={project} 
+                featured={true}
+              />
+            ))}
+          </div>
 
-          {/* Other Projects */}
-          {otherProjects.length > 0 && (
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-8">Outros Projetos</h3>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {otherProjects.map((project) => (
-                  <ProjectCard 
-                    key={project.id} 
-                    project={project}
-                  />
-                ))}
-              </div>
-            </div>
-          )}
+          {/* Other Projects Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-12">
+            {otherProjects.map((project) => (
+              <ProjectCard 
+                key={project.id} 
+                project={project}
+              />
+            ))}
+          </div>
 
           {/* Call to Action */}
-          <div className="mt-16 text-center">
-            <div className="bg-gradient-to-r from-primary-50 to-secondary-50 rounded-xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Interessado em colaborar?
-              </h3>
-              <p className="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
-                Estou sempre aberta a novos desafios e oportunidades de trabalhar 
-                em projetos interessantes. Vamos conversar!
-              </p>
-              <button 
-                onClick={() => {
-                  const element = document.getElementById('contact');
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-                className="btn-primary text-lg px-8 py-3"
-              >
-                Entrar em Contato
-              </button>
+          <div className="mt-24 text-center">
+            <div className="bg-brand-burgundy rounded-2xl p-14 text-white shadow-2xl relative overflow-hidden group hover:shadow-brand-burgundy/30 transition-shadow">
+              <div className="relative z-10">
+                <h3 className="text-3xl font-display font-bold mb-6">
+                  Pronta para novos desafios estratégicos
+                </h3>
+                <p className="text-xl mb-10 max-w-3xl mx-auto opacity-90 font-serif font-light">
+                  A minha experiência combina a visão operacional da hotelaria de luxo com a 
+                  agilidade do marketing digital e a precisão da gestão comercial.
+                </p>
+                <button 
+                  onClick={() => {
+                    const element = document.getElementById('contact');
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  className="bg-white text-brand-burgundy font-sans font-bold text-lg px-12 py-4 rounded shadow-lg hover:bg-brand-gold hover:text-white transition-all duration-300 transform hover:-translate-y-1"
+                >
+                  Solicitar Currículo Completo
+                </button>
+              </div>
+              
+              {/* Decorative elements */}
+              <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-white/10 rounded-full blur-3xl group-hover:bg-white/15 transition-colors"></div>
+              <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-black/20 rounded-full blur-3xl"></div>
             </div>
           </div>
         </div>
